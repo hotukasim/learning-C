@@ -1,0 +1,13 @@
+*.pdf
+*.in
+*.out
+*.ans
+*.bin
+*.exe
+*.pdf
+*.in
+*.out
+*.ans
+*.bin
+*.exe
+bin/
