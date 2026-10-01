@@ -10,8 +10,11 @@ int main(){
     /*
     we must gate segmentation fault
     q কোনো valid address-এ point করছে না। ফলে তুমি unknown memory location-এ write করার চেষ্টা করছ।
-
     এটা undefined behavior। Program crash করতে পারে, অন্য কিছু print করতে পারে, অথবা আপাতদৃষ্টিতে ঠিকঠাকও চলতে পারে।
+
+    //
+    to access any pointer we must assign the address of the variable to the pointer! thast why we got seg fault!
+    though some os this will run but this is seg fault!!!!
     */
     printf("val of x %d\n", x);
     printf("val of y %d\n", y);
