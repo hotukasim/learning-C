@@ -1,52 +1,53 @@
-#include<stdio.h>
+#include <stdio.h>
 
-#define MAXLINE 100
+#define MAXLINE 30
 
-int get_line(char a[], int k){
+int get_line(char a[], int b);
+void copy(char a[], char b[]);
+
+int main()
+{
+    int c;
+    char a[MAXLINE];
+    char b[MAXLINE];
+    int mx = 0;
+
+    while ((c = get_line(a, MAXLINE)) > 0) {
+        if (mx < c) {
+            mx = c;
+            copy(b, a);
+        }
+    }
+
+    if (mx > 0) {
+        printf("Longest line: %s\n", b);
+        printf("Length: %d\n", mx);
+    }
+
+    return 0;
+}
+
+int get_line(char a[], int b)
+{
     int c, i;
-    for(i = 0; (c=getchar())!= EOF && c != '\n'; i++){
-        if(i <  k-1){
-            a[i]=c;
-        }
-    }
-    if(c=='\n'){
-        if(i < k-1){
-            a[i]=c;
 
-        }
-        i++;
+    for (i = 0; (c = getchar()) != EOF && c != '\n'; i++) {
+        if (i < b - 1)
+            a[i] = c;
+    }
 
-    }
-    if(i < k){
-        a[i]='\0';
-    }
+    if (i < b - 1)
+        a[i] = '\0';
     else
-        a[k-1] = '\0';
+        a[b - 1] = '\0';
 
     return i;
 }
-void copy(char to[], char from[]){
+
+void copy(char a[], char b[])
+{
     int i = 0;
-    while((to[i]=from[i])!= '\0'){
+
+    while ((a[i] = b[i]) != '\0')
         i++;
-    }
 }
-
-int  main(){
-    int c;
-    int mx = 0;
-    char l[MAXLINE];
-    char sv[MAXLINE];
-
-    while((c = get_line(l,MAXLINE)) > 0){
-        if(c > mx){
-            mx = c;
-            copy(sv, l);
-
-        }
-    }
-    printf("max line is : %d\n", mx);
-    printf("the string is %s", sv);
-}
-
-
